@@ -10,20 +10,30 @@ import java.util.Set;
 @Table(name = "PetStore")
 public class PetStore {
 
+    /** ID unique du PetStore
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
+    /** Nom du PetStore
+     */
     @Column(name = "NAME")
     private String name;
 
+    /** Nom du manager du PetStore
+     */
     @Column(name = "MANAGER_NAME")
     private String managerName;
 
+    /** Adresse unique lié au PetStore
+     */
     @OneToOne(mappedBy = "petStore", cascade = CascadeType.ALL)
     private Adresse adresse;
 
+    /** Table de liaison entre les produits et les PetStore
+     */
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "PetStore_Product",
@@ -33,6 +43,8 @@ public class PetStore {
     private Set<Product> products;
 
 
+    /** List des animaux liait au PetStore
+     */
     @OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL) // Associe les animaux à ce PetStore
     private Set<Animal> animals;
 
@@ -46,6 +58,11 @@ public class PetStore {
     public PetStore() {
     }
 
+    /** Constucteur pour le PetStore
+     *
+     * @param name
+     * @param managerName
+     */
     public PetStore(String name, String managerName) {
         this.name = name;
         this.managerName = managerName;
@@ -72,7 +89,7 @@ public class PetStore {
     }
 
     /**
-     * Getter for animals
+     * Setter for animals
      *
      * @return animals
      */
@@ -92,7 +109,7 @@ public class PetStore {
     }
 
     /**
-     * Getter for products
+     * Setter for products
      *
      * @return products
      */
@@ -112,7 +129,7 @@ public class PetStore {
     }
 
     /**
-     * Getter for adresse
+     * Setter for adresse
      *
      * @return adresse
      */
@@ -132,7 +149,7 @@ public class PetStore {
     }
 
     /**
-     * Getter for managerName
+     * Setter for managerName
      *
      * @return managerName
      */
@@ -152,7 +169,7 @@ public class PetStore {
     }
 
     /**
-     * Getter for name
+     * Setter for name
      *
      * @return name
      */
@@ -225,6 +242,10 @@ public class PetStore {
         }
     }
 
+    /** Permet d'afficher les informations d'un PetStore
+     *
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("PetStore{");

@@ -6,23 +6,35 @@ import jakarta.persistence.*;
 @Table(name = "Adresse")
 public class Adresse {
 
+    /** ID unique de l'adresse
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
+    /** Numero de de l'adresse
+     */
     @Column(name = "NUMBER")
     private String number;
 
+    /** Rue de l'adresse
+     */
     @Column(name = "STREET")
     private String street;
 
+    /** Code postal de l'adresse
+     */
     @Column(name = "ZIP_CODE")
     private String zipCode;
 
+    /** Nom de la ville
+     */
     @Column(name = "CITY")
     private String city;
 
+    /** ID unique du PetStore associé
+     */
     @OneToOne
     @JoinColumn(name = "ID_STORE")
     private PetStore petStore;
@@ -30,6 +42,13 @@ public class Adresse {
     public Adresse() {
     }
 
+    /** Constructeur pour l'adresse
+     *
+     * @param city
+     * @param zipCode
+     * @param street
+     * @param number
+     */
     public Adresse(String city, String zipCode, String street, String number) {
         this.city = city;
         this.zipCode = zipCode;
@@ -143,10 +162,18 @@ public class Adresse {
      * @return petStore
      */
 
+    /** Permet de définir l'id d'un petStore
+     *
+     * @param petStore
+     */
     public void setPetStore(PetStore petStore) {
         this.petStore = petStore;
     }
 
+    /** Permet d'afficher les informations d'une adresse
+     *
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Adresse{");

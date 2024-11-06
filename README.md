@@ -15,4 +15,4 @@ Pour ajouter des produit :
 
 
 
-Pour chaque ajouter"classe" il existe sont contraire (sauf pour adresse) qui se nomme " supprimer'classe'(classe)"/
+Pour chaque ajouter"classe" il existe sont contraire (sauf pour adresse) qui se nomme " supprimer'classe'(classe)" 

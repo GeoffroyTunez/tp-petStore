@@ -8,8 +8,16 @@ import java.time.LocalDate;
 @Table(name = "Cat")
 public class Cat extends Animal{
 
+    /** ID de la puce du chat
+     */
     private String chipId;
 
+    /** Constructeur pour un chat
+     *
+     * @param birth
+     * @param couleur
+     * @param chipId
+     */
     public Cat(LocalDate birth, String couleur, String chipId) {
         super(birth, couleur);
         this.chipId = chipId;
@@ -26,7 +34,7 @@ public class Cat extends Animal{
     }
 
     /**
-     * Getter for chipId
+     * Setter for chipId
      *
      * @return chipId
      */
@@ -35,6 +43,10 @@ public class Cat extends Animal{
         this.chipId = chipId;
     }
 
+    /** Permet d'afficher les informations d'un chat
+     *
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Cat{");
