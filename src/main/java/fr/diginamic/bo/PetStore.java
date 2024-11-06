@@ -24,7 +24,7 @@ public class PetStore {
     @OneToOne(mappedBy = "petStore", cascade = CascadeType.ALL)
     private Adresse adresse;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "PetStore_Product",
             joinColumns = @JoinColumn(name = "PETSTORE_ID"),
@@ -161,6 +161,10 @@ public class PetStore {
         this.name = name;
     }
 
+    /** Ajouter l'adresse d'une animalerie
+     *
+     * @param adresse
+     */
     public void ajouterAdresse(Adresse adresse){
         if(adresse != null){
             this.adresse = adresse;
@@ -209,6 +213,11 @@ public class PetStore {
         }
     }
 
+    /** Déplacer des animaux d'une animalerie vers une autre
+     *
+     * @param animal
+     * @param petStore
+     */
     public void déplacerAnimal(Animal animal, PetStore petStore){
         if (animal != null && petStore != null){
             this.getAnimals().remove(animal);
