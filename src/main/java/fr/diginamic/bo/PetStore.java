@@ -29,7 +29,7 @@ public class PetStore {
 
     /** Adresse unique lié au PetStore
      */
-    @OneToOne(mappedBy = "petStore", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "petStore", cascade = CascadeType.PERSIST)
     private Adresse adresse;
 
     /** Table de liaison entre les produits et les PetStore
@@ -45,7 +45,7 @@ public class PetStore {
 
     /** List des animaux liait au PetStore
      */
-    @OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL) // Associe les animaux à ce PetStore
+    @OneToMany(mappedBy = "petStore", cascade = CascadeType.PERSIST) // Associe les animaux à ce PetStore
     private Set<Animal> animals;
 
 
